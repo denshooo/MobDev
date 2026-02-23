@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BMI_Calc.MainPage">
+
+    <VerticalStackLayout Padding="30" Spacing="15">
+        <Label Text="BMI Calculator" FontSize="24" HorizontalOptions="Center"/>
+
+        <Entry x:Name="txtWeight" Placeholder="Enter weight (kg)"/>
+
+        <HorizontalStackLayout Spacing="10">
+            <Entry x:Name="txtFeet" Placeholder="Feet" WidthRequest="150"/>
+            <Entry x:Name="txtInches" Placeholder="Inches" WidthRequest="150"/>
+        </HorizontalStackLayout>
+
+        <Button x:Name="btnCalculate" Text="Calculate" Clicked="btnCalculate_Click"/>
+
+        <Label x:Name="lblResult"/>
+        <Label x:Name="lblStatus"/>
+    </VerticalStackLayout>
+
+</ContentPage>

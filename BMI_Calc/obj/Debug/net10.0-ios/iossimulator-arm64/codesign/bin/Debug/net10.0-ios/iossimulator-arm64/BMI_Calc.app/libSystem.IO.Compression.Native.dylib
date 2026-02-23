@@ -1,0 +1,1 @@
+-v --force --timestamp=none --sign - /Users/labuser/RiderProjects/BMI_Calc/BMI_Calc/bin/Debug/net10.0-ios/iossimulator-arm64/BMI_Calc.app/libSystem.IO.Compression.Native.dylib
