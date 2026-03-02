@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="to_do_list.MainPage"
+             Title="To-Do List">
+
+    <VerticalStackLayout Padding="20" Spacing="10">
+
+        <!-- Input -->
+        <Entry x:Name="TaskEntry" Placeholder="Enter a task..." />
+        <DatePicker x:Name="DeadlinePicker" Format="MMM dd, yyyy" />
+        <Button Text="Add Task" Clicked="OnAddClicked" />
+
+        <!-- Active Tasks -->
+        <Label Text="Active Tasks" FontSize="18" FontAttributes="Bold" Margin="0,10,0,0"/>
+        <ListView x:Name="ActiveList"
+                  ItemsSource="{Binding ActiveItems}"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <HorizontalStackLayout Padding="5" Spacing="10">
+                            <CheckBox IsChecked="{Binding IsCompleted}"
+                                      CheckedChanged="OnTaskChecked" />
+                            <VerticalStackLayout VerticalOptions="Center">
+                                <Label Text="{Binding Title}" FontSize="16" />
+                                <Label Text="{Binding DeadlineText}" FontSize="12" TextColor="Gray" />
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- Finished Tasks -->
+        <Label Text="Finished Tasks" FontSize="18" FontAttributes="Bold" Margin="0,10,0,0"/>
+        <ListView ItemsSource="{Binding FinishedItems}" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <HorizontalStackLayout Padding="5" Spacing="10">
+                            <VerticalStackLayout VerticalOptions="Center">
+                                <Label Text="{Binding Title}" FontSize="16" TextDecorations="Strikethrough" TextColor="Gray"/>
+                                <Label Text="{Binding DeadlineText}" FontSize="12" TextColor="LightGray" />
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </VerticalStackLayout>
+</ContentPage>
